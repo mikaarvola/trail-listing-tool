@@ -1,4 +1,4 @@
-# trail_listing_tool
+# Trail listing tool
 Tool for listing items from [Trail Asset Management](https://trail.fi/). To use this tool you have to get an API Token from the Trail service.
 
 ## Key features
