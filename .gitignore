@@ -1,0 +1,5 @@
+# ignore configure file
+config.php
+
+# ignore test file
+test.php
