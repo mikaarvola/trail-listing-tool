@@ -51,7 +51,6 @@ if($model2 != '') {
 
 
 // set POST variables
-// $url = 'https://api.trail.fi/api/v1/items?&search%5Bfree%5D='.$freematch.'&search%5Bdepartment_ids%5D%5B%5D='.$department1.'&search%5Blocations%5D%5B%5D='.$location1.'&search%5Bmodel_category_ids%5D%5B%5D='.$model1.'&search%5Bmodel_category_ids%5D%5B%5D='.$model2.'&search%5Bitem_type_id%5D=&search%5Bafter%5D=&search%5Bbefore%5D=&search%5Baudited_after%5D=&search%5Baudited_before%5D=&search%5Bexpires_after%5D=&search%5Bexpires_before%5D=&search%5Bprice_above%5D=&search%5Bprice_below%5D=&search%5Bcreated_after%5D=&search%5Bmarked%5D=&search%5Bdeleted%5D=&search%5Bdeleted_after%5D=&search%5Bdeleted_before%5D=&search%5Bdelete_reason%5D=&search%5Breservable%5D=&page=1&per_page=50000';
 $url = 'https://api.trail.fi/api/v1/items?&search%5Bfree%5D='.$freematch.'&search%5Bdepartment_ids%5D%5B%5D='.$department1.'&search%5Blocations%5D%5B%5D='.$location1.''.$model_category_id1.''.$model_category_id2.'&search%5Bitem_type_id%5D=&search%5Bafter%5D=&search%5Bbefore%5D=&search%5Baudited_after%5D=&search%5Baudited_before%5D=&search%5Bexpires_after%5D=&search%5Bexpires_before%5D=&search%5Bprice_above%5D=&search%5Bprice_below%5D=&search%5Bcreated_after%5D=&search%5Bmarked%5D=&search%5Bdeleted%5D=&search%5Bdeleted_after%5D=&search%5Bdeleted_before%5D=&search%5Bdelete_reason%5D=&search%5Breservable%5D=&page=1&per_page=50000';
 
 // open connection
@@ -60,7 +59,7 @@ $ch = curl_init();
 // set the url, number of POST vars, POST data
 curl_setopt($ch,CURLOPT_URL, $url);
 curl_setopt($ch,CURLOPT_HTTPHEADER, array('Content-Type: text/json', 'Authorization: Basic '.$code));
-// curl_setopt($ch,CURLOPT_POSTFIELDS, json_encode($fields));
+
 // save response to variable $result
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 
@@ -75,7 +74,7 @@ curl_close($ch);
 // create PHP array from Trail JSON export
 $array = json_decode($json, true);
 
-// echo "<h1>AV-tiimin hyllyssä olevat laitteet</h1>";
+// table headings, currently hardcoded and including some example attributes
 echo "<tr><td>Valmistaja</td><td>Kuvaus</td><td>Sijainti</td><td>Sarjanro</td></tr>";
 
 foreach ($array['data'] as $thread) {   
@@ -83,7 +82,6 @@ foreach ($array['data'] as $thread) {
 }
 ?>
 </table>
-<!-- <p>Keltaisella taustalla olevat laitteet ovat kuluttajaluokan televisioita, ilman taustaa ovat näyttöjä.</p> -->
 
 <?php
      // print API URI and PHP array for debugging purposes, set debug as url parameter
