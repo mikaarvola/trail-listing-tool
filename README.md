@@ -2,7 +2,7 @@
 Tool for listing items from [Trail Asset Management](https://trail.fi/). To use this tool you have to get an API Token from the Trail service. Output of this list can be embedded for ie. organizations intranet for realtime asset listing.
 
 ## Key features
-- currently searching from one department only
+- two departments supported, at least one have to set as default and is not necessary to define in query
 - two model ids supported
 - free text search
 - one location
@@ -23,6 +23,7 @@ Tool for listing items from [Trail Asset Management](https://trail.fi/). To use 
 - department (override default department)
 - hide-model (hides model column)
 - hide-serial (hides serial column)
+- clean (removes TUAS colors from table which are currently there for development purposes)
 
 ## Example
  https://your_web_server/trail.php?model1=1234567890&location1=12345&free=freetext&debug&hide-serial
