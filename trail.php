@@ -49,6 +49,10 @@ if($model2 != '') {
      $model_category_id2 = '&search%5Bmodel_category_ids%5D%5B%5D='.$model2;
 };
 
+// Check if deparment is defined instead of default
+if(isset($_GET['department'])) {
+     $department1 = $_GET['department']; // get from url parameter, ?free=xxx
+};
 
 // set POST variables
 $url = 'https://api.trail.fi/api/v1/items?&search%5Bfree%5D='.$freematch.'&search%5Bdepartment_ids%5D%5B%5D='.$department1.'&search%5Blocations%5D%5B%5D='.$location1.''.$model_category_id1.''.$model_category_id2.'&search%5Bitem_type_id%5D=&search%5Bafter%5D=&search%5Bbefore%5D=&search%5Baudited_after%5D=&search%5Baudited_before%5D=&search%5Bexpires_after%5D=&search%5Bexpires_before%5D=&search%5Bprice_above%5D=&search%5Bprice_below%5D=&search%5Bcreated_after%5D=&search%5Bmarked%5D=&search%5Bdeleted%5D=&search%5Bdeleted_after%5D=&search%5Bdeleted_before%5D=&search%5Bdelete_reason%5D=&search%5Breservable%5D=&page=1&per_page=50000';
@@ -75,10 +79,10 @@ curl_close($ch);
 $array = json_decode($json, true);
 
 // table headings, currently hardcoded and including some example attributes
-echo "<tr><td>Valmistaja</td><td>Kuvaus</td><td>Sijainti</td><td>Sarjanro</td></tr>";
+echo "<tr><td>Valmistaja</td><td>Malli</td><td>Kuvaus</td><td>Sijainti</td><td>Sarjanro</td></tr>";
 
 foreach ($array['data'] as $thread) {   
-     echo "<tr class='".$thread['category']."'><td>".$thread['manufacturer']."</td><td>".$thread['description']."</td><td>".$thread['location']['location']['name']."</td><td>".$thread['serial']."</td></tr>";
+     echo "<tr class='".$thread['category']."'><td>".$thread['manufacturer']."</td><td>".$thread['model']['name']."</td><td>".$thread['description']."</td><td>".$thread['location']['location']['name']."</td><td>".$thread['serial']."</td></tr>";
 }
 ?>
 </table>
