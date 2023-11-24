@@ -15,15 +15,16 @@ Tool for listing items from [Trail Asset Management](https://trail.fi/). To use 
 4. Open https://your_web_server/trail.php in your web browser
 
 ## Supported url parameters
-- free (free text search)
-- model1 (first model id)
-- model2 (second model id)
-- location1 (location id)
-- debug (display query URI and PHP array for debugging purposes)
-- department (override default department)
-- hide-model (hides model column)
-- hide-serial (hides serial column)
-- clean (removes TUAS colors from table which are currently there for development purposes)
+- `free` (free text search, use as free=xxx)
+- `model1` (first model id, use as model1=12345)
+- `model2` (second model id, use as model2=12345)
+- `location1` (location id, use as location1=12345)
+- `debug` (display query URI and PHP array for debugging purposes, no value needed)
+- `department` (overrides default department, use as department=12345)
+- `department2` (set second department, use as department2=34567)
+- `hide-model` (hides model column, no value needed)
+- `hide-serial` (hides serial column, no value needed)
+- `clean` (removes TUAS colors from table which are currently there for development purposes, no value needed)
 
 ## Example
  https://your_web_server/trail.php?model1=1234567890&location1=12345&free=freetext&debug&hide-serial
