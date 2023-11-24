@@ -141,5 +141,14 @@ tr.Näyttö {
      background: #044664;
      color: white;
 }
+
+<?php
+if(isset($_GET['hide-model'])) {
+          echo 'tr > th:nth-of-type(2),';
+          echo 'tr > td:nth-of-type(2) {';
+          echo '     display: none;';
+          echo '}';
+};
+?>
 </style>
 </html>

@@ -1,11 +1,12 @@
 # Trail listing tool
-Tool for listing items from [Trail Asset Management](https://trail.fi/). To use this tool you have to get an API Token from the Trail service.
+Tool for listing items from [Trail Asset Management](https://trail.fi/). To use this tool you have to get an API Token from the Trail service. Output of this list can be embedded for ie. organizations intranet for realtime asset listing.
 
 ## Key features
-- currently seraching from one department only
+- currently searching from one department only
 - two model ids supported
 - free text search
 - one location
+- outputting table which contains `manufacturer`, `model`, `description`, `location` and `serial`
 
 ## How to use
 1. Clone repository to your web server
@@ -19,6 +20,8 @@ Tool for listing items from [Trail Asset Management](https://trail.fi/). To use 
 - model2 (second model id)
 - location1 (location id)
 - debug (display query URI and PHP array for debugging purposes)
+- department (override default department)
+- hide-model (hides model column)
 
 ## Example
  https://your_web_server/trail.php?model1=1234567890&location1=12345&free=freetext&debug
