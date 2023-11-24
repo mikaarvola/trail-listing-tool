@@ -41,6 +41,7 @@ if($department1 == '') {
      die;
 };
 
+// Check if models are defined
 if($model1 != '') {
      $model_category_id1 = '&search%5Bmodel_category_ids%5D%5B%5D='.$model1;
 };
@@ -49,9 +50,9 @@ if($model2 != '') {
      $model_category_id2 = '&search%5Bmodel_category_ids%5D%5B%5D='.$model2;
 };
 
-// Check if deparment is defined instead of default
+// Check if department is defined instead of default from config.php
 if(isset($_GET['department'])) {
-     $department1 = $_GET['department']; // get from url parameter, ?free=xxx
+     $department1 = $_GET['department'];
 };
 
 // set POST variables
