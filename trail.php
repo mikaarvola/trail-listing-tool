@@ -84,55 +84,58 @@ foreach ($array['data'] as $thread) {
 </table>
 
 <?php
-     // print API URI and PHP array for debugging purposes, set debug as url parameter
-     if(isset($_GET['debug'])) {
-          echo $url;
-          echo '<pre>'; print_r($array); echo '</pre>';
-     };
+// print API URI and PHP array for debugging purposes, set debug as url parameter
+if(isset($_GET['debug'])) {
+     echo '<h3>Query URL</h4>';
+     echo $url;
+     echo '<h3>PHP array</h4>';
+     echo '<pre>'; print_r($array); echo '</pre>';
+     echo '<p>end of report</p>';
+};
 ?>
 
-     </body>
-    <style>
-     body {
-          font-family: "Segoe UI", "Segoe UI Web (West European)", "Segoe UI", -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif;
-          font-size: 14px;
-     }
+</body>
+<style>
+body {
+     font-family: "Segoe UI", "Segoe UI Web (West European)", "Segoe UI", -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif;
+     font-size: 14px;
+}
 
-     td {
-          padding: 5px 10px;
-     }
+td {
+     padding: 5px 10px;
+}
 
-     table {
-          max-width: 100%;
-          border: 0;
-          border-collapse: collapse;
-     }
+table {
+     max-width: 100%;
+     border: 0;
+     border-collapse: collapse;
+}
 
-     table td:nth-child(2),
-     table td:nth-child(3) {
-          white-space:nowrap;
-          width: 1px;
-          padding-right: 30px;
-          margin: 10px;
-     }
+table td:nth-child(2),
+table td:nth-child(3) {
+     white-space:nowrap;
+     width: 1px;
+     padding-right: 30px;
+     margin: 10px;
+}
 
-     table tr:nth-child(1) {
-          font-weight: bold;
-     }
+table tr:nth-child(1) {
+     font-weight: bold;
+}
 
-     tr {
-     border-bottom: 1px solid white;
-     }
+tr {
+border-bottom: 1px solid white;
+}
 
-     tr.Televisio {
-          background: #930e5e;
-          color: white;
-          padding: 10px;
-     }
+tr.Televisio {
+     background: #930e5e;
+     color: white;
+     padding: 10px;
+}
 
-     tr.Näyttö {
-          background: #044664;
-          color: white;
-     }
-     </style>
+tr.Näyttö {
+     background: #044664;
+     color: white;
+}
+</style>
 </html>
