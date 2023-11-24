@@ -149,6 +149,12 @@ if(isset($_GET['hide-model'])) {
           echo '     display: none;';
           echo '}';
 };
+if(isset($_GET['hide-serial'])) {
+     echo 'tr > th:nth-of-type(5),';
+     echo 'tr > td:nth-of-type(5) {';
+     echo '     display: none;';
+     echo '}';
+};
 ?>
 </style>
 </html>

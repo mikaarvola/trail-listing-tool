@@ -22,6 +22,7 @@ Tool for listing items from [Trail Asset Management](https://trail.fi/). To use 
 - debug (display query URI and PHP array for debugging purposes)
 - department (override default department)
 - hide-model (hides model column)
+- hide-serial (hides serial column)
 
 ## Example
- https://your_web_server/trail.php?model1=1234567890&location1=12345&free=freetext&debug
+ https://your_web_server/trail.php?model1=1234567890&location1=12345&free=freetext&debug&hide-serial
