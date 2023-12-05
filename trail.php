@@ -11,8 +11,17 @@ require_once('./config.php');
 
 // set SEARCH variables
 $freematch = ''; // set manually here if needed
+
 if(isset($_GET['free'])) {
      $freematch = $_GET['free']; // get from url parameter, ?free=xxx
+     
+     // Replace Finnish alphabets
+     $freematch = str_replace('å', '%C3%A5', $freematch);
+     $freematch = str_replace('Å', '%C3%85', $freematch);
+     $freematch = str_replace('ä', '%C3%A4', $freematch);
+     $freematch = str_replace('Ä', '%C3%84', $freematch);
+     $freematch = str_replace('ö', '%C3%B6', $freematch);
+     $freematch = str_replace('Ö', '%C3%96', $freematch);
 };
 
 $model1 = ''; // set manually here if needed, for example 303979439
