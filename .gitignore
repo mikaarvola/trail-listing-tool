@@ -3,3 +3,6 @@ config.php
 
 # ignore test file
 test.php
+
+#ignore Apache-config
+.htaccess
