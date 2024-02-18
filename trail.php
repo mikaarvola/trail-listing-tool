@@ -92,7 +92,8 @@ $json = curl_exec($ch);
 // close connection
 curl_close($ch);
 
-// var_dump($result);
+// for debug only
+     /* var_dump($result); */
 
 // create PHP array from Trail JSON export
 $array = json_decode($json, true);
@@ -106,7 +107,7 @@ foreach ($array['data'] as $thread) {
      $roomcode = $campus['0']."_".$room;
      $cleancode = explode(' ', $roomcode);
      echo "<tr class='".$thread['category']."'><td>".$thread['manufacturer']."</td><td>".$thread['model']['name']."</td><td>".$thread['description']."</td><td>".$campus['0']."</td><td>".$thread['location']['location']['name']."</td><td>".$cleancode[0]."</td><td>".$thread['serial']."</td></tr>";
-     // echo $loppuclean[0];
+
 }
 ?>
 </table>
