@@ -99,14 +99,14 @@ curl_close($ch);
 $array = json_decode($json, true);
 
 // table headings, currently hardcoded and including some example attributes
-echo "<tr><td>Valmistaja</td><td>Malli</td><td>Kuvaus</td><td>Kampus</td><td>Sijainti</td><td>Tilakoodi</td><td>Sarjanro</td></tr>";
+echo "<tr><td class='manufacturer'>Valmistaja</td><td class='modelname'>Malli</td><td>Kuvaus</td><td>Kampus</td><td>Sijainti</td><td>Tilakoodi</td><td class='serial'>Sarjanro</td></tr>";
 
 foreach ($array['data'] as $thread) {
      $campus = explode(' ', $thread['root_location']);
      $room = $thread['location']['location']['name'];
      $roomcode = $campus['0']."_".$room;
      $cleancode = explode(' ', $roomcode);
-     echo "<tr class='".$thread['category']."'><td>".$thread['manufacturer']."</td><td>".$thread['model']['name']."</td><td>".$thread['description']."</td><td>".$campus['0']."</td><td>".$thread['location']['location']['name']."</td><td>".$cleancode[0]."</td><td>".$thread['serial']."</td></tr>";
+     echo "<tr class='".$thread['category']."'><td class='manufacturer'>".$thread['manufacturer']."</td><td class='modelname'>".$thread['model']['name']."</td><td>".$thread['description']."</td><td>".$campus['0']."</td><td>".$thread['location']['location']['name']."</td><td>".$cleancode[0]."</td><td class='serial'>".$thread['serial']."</td></tr>";
 
 }
 ?>
@@ -170,16 +170,21 @@ tr.Näyttö {
 <?php
 // hides model from output
 if(isset($_GET['hide-model'])) {
-          echo 'tr > th:nth-of-type(2),';
-          echo 'tr > td:nth-of-type(2) {';
+          echo 'tr > td.modelname {';
           echo '     display: none;';
           echo '}';
 };
 
 // hides serial from output
 if(isset($_GET['hide-serial'])) {
-     echo 'tr > th:nth-of-type(5),';
-     echo 'tr > td:nth-of-type(5) {';
+     echo 'tr > td.serial {';
+     echo '     display: none;';
+     echo '}';
+};
+
+// hides manufacturer from output
+if(isset($_GET['hide-manufacturer'])) {
+     echo 'tr > td.manufacturer {';
      echo '     display: none;';
      echo '}';
 };

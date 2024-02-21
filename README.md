@@ -24,6 +24,7 @@ Tool for listing items from [Trail Asset Management](https://trail.fi/). To use 
 - `department2` (set second department, use as department2=34567)
 - `hide-model` (hides model column, no value needed)
 - `hide-serial` (hides serial column, no value needed)
+- `hide-manufacturer` (hides manufacturer column, no value needed)
 - `clean` (removes TUAS colors from table which are currently there for development purposes, no value needed)
 
 ## Example
