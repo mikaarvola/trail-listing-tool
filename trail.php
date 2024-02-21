@@ -4,7 +4,6 @@
         <title>Data retrieved from Trail Asset Management</title>
     </head>
     <body>
-    <table>
 <?php
 
 require_once('./config.php');
@@ -98,9 +97,11 @@ curl_close($ch);
 // create PHP array from Trail JSON export
 $array = json_decode($json, true);
 
+echo '<table class="main">';
 // table headings, currently hardcoded and including some example attributes
 echo "<tr><td class='manufacturer'>Valmistaja</td><td class='modelname'>Malli</td><td>Kuvaus</td><td>Kampus</td><td>Sijainti</td><td>Tilakoodi</td><td class='serial'>Sarjanro</td></tr>";
 
+// build 
 foreach ($array['data'] as $thread) {
      $campus = explode(' ', $thread['root_location']);
      $room = $thread['location']['location']['name'];
@@ -111,6 +112,36 @@ foreach ($array['data'] as $thread) {
 }
 ?>
 </table>
+
+<?php
+// give summary instead of device catalogue
+if(isset($_GET['summary'])) {
+
+     echo '<style>table.main {display: none;}</style>';
+     // create smaller array with mfg + model combined
+     $items = array();
+     foreach ($array['data'] as $thread) {
+          if ($thread['model']['name'] != null) {
+               $items[] = $thread['manufacturer']." ".$thread['model']['name'];
+          };
+     }
+
+     // create small array mfg + model combined
+     $result = count($items); 
+     if ($result != null) {
+          $vals = array_count_values($items);
+          // echo 'No. of NON Duplicate Items: '.count($vals).'<br><br>';
+          // print_r($vals);
+          echo '<table>';
+          echo '<tr><td style="text-align: left;">Laite</td><td>lukumäärä</td></tr>';
+          foreach($vals as $id => $amount) {
+               echo '<tr><td>'.$id.'</td><td class="amount">'.$amount.'</td></tr>';
+          };
+          echo '<tr style="border-top: 2px solid black"><td>Laitteita yhteensä:</td><td class="amount">'.$result.'</td></tr>';
+          echo '</table>';
+     };
+};
+?>
 
 <?php
 // print API URI and PHP array for debugging purposes, set debug as url parameter
@@ -150,6 +181,10 @@ table td:nth-child(3) {
 
 table tr:nth-child(1) {
      font-weight: bold;
+}
+
+td.amount {
+     text-align: center;
 }
 
 tr {
