@@ -1,8 +1,9 @@
 # ignore configure file
 config.php
 
-# ignore test file
+# ignore test files
 test.php
+trail_beta.php
 
 #ignore Apache-config
 .htaccess
